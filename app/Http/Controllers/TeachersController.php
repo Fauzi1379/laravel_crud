@@ -36,11 +36,6 @@ class TeachersController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-        'nik' => 'required|size:16',
-        'nama' => 'required'
-        ]);
-
         $teacher = new Teacher;
         $teacher->nik=$request->nik;
         $teacher->nama=$request->nama;

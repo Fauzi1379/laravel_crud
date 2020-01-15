@@ -20,6 +20,8 @@ Route::get('/data', function () {
 */
 route::get('/', 'PagesController@home');
 route::get('/data','PengajarController@index');
-
 //gurus
 route::get('/teachers', 'TeachersController@index');
+route::get('/teachers/create', 'TeachersController@create');
+route::get('/teachers/{teacher}', 'TeachersController@show');
+route::post('/teachers', 'TeachersController@store');

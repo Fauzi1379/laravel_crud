@@ -25,7 +25,7 @@ class TeachersController extends Controller
      */
     public function create()
     {
-        //
+        return view('teachers.create');
     }
 
     /**
@@ -36,7 +36,22 @@ class TeachersController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+        'nik' => 'required|size:16',
+        'nama' => 'required'
+        ]);
+
+        $teacher = new Teacher;
+        $teacher->nik=$request->nik;
+        $teacher->nama=$request->nama;
+        $teacher->alamat=$request->alamat;
+
         //
+
+        $teacher->save();
+
+
+        return redirect('/teachers')->with('status', 'Data pengajar berhasil ditambah');
     }
 
     /**
@@ -47,7 +62,7 @@ class TeachersController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+        return view('teachers.show', compact('teacher'));
     }
 
     /**

@@ -36,6 +36,13 @@ class TeachersController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'nik' => 'required|size:16',
+                'nama' => 'required'
+            ]
+            );
+
         $teacher = new Teacher;
         $teacher->nik=$request->nik;
         $teacher->nama=$request->nama;
@@ -68,7 +75,7 @@ class TeachersController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        return view('teachers.edit', compact('teacher'));
     }
 
     /**
@@ -80,7 +87,14 @@ class TeachersController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        Teacher::where('id', $teacher->id)
+                ->update([
+                    'nik' => $request->nik,
+                    'nama' => $request->nama,
+                    'alamat' => $request->alamat
+                ]);
+        
+        return redirect('/teachers')->with('status', 'Data pengajar berhasil diubah');
     }
 
     /**
@@ -91,6 +105,7 @@ class TeachersController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
-        //
+        Teacher::destroy($teacher->id);
+        return redirect('/teachers')->with('status', 'Data pengajar berhasil dihapus');
     }
 }

@@ -5,7 +5,7 @@
 @section('container')
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col-8">
             <h1 class="mt-3">daftar pengajar</h1>
 
             <a href="/teachers/create" class="btn btn-info my-3">+ Tambah data Pengajar</a>

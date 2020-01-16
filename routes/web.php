@@ -25,3 +25,6 @@ route::get('/teachers', 'TeachersController@index');
 route::get('/teachers/create', 'TeachersController@create');
 route::get('/teachers/{teacher}', 'TeachersController@show');
 route::post('/teachers', 'TeachersController@store');
+route::delete('/teachers/{teacher}', 'TeachersController@destroy');
+route::get('/teachers/{teacher}/edit', 'TeachersController@edit');
+route::patch('/teachers/{teacher}', 'TeachersController@update');

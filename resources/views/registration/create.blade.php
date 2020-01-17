@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login</title>
+	<title>Registrasi</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -32,11 +32,16 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-                <form class="login100-form validate-form" action="/postlogin" method="post">
+                <form class="login100-form validate-form" action="/registration" method="post">
                 @csrf
 					<span class="login100-form-title p-b-33">
 						<img src="img/1.jpg" height="150" width="150">
-					</span>
+                    </span>
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="name" placeholder="Name">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email" placeholder="Email">
@@ -52,16 +57,16 @@
 
 					<div class="container-login100-form-btn m-t-20">
 						<button class="login100-form-btn">
-							Login
+							Create
 						</button>
 					</div>
 					<div class="text-center">
 						<span class="txt1">
-							Buat akun baru?
+							Already Registered?
 						</span>
 
-						<a href="{{ url('/registration') }}" class="txt2 hov1">
-							Sign up
+						<a href="/login" class="txt2 hov1">
+							Sign in
 						</a>
 					</div>
 				</form>

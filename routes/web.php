@@ -19,8 +19,11 @@ Route::get('/data', function () {
 });
 */
 route::get('/', function(){
-    return view('home');
+    return view('/auths/login');
 });
+
+Route::get('/registration', 'RegistrationController@create');
+Route::post('registration', 'RegistrationController@store');
 
 //gurus
 route::get('/login','AuthController@login')->name('login');

@@ -18,13 +18,22 @@ Route::get('/data', function () {
     return view('data');
 });
 */
-route::get('/', 'PagesController@home');
-route::get('/data','PengajarController@index');
+route::get('/', function(){
+    return view('home');
+});
+
 //gurus
-route::get('/teachers', 'TeachersController@index');
-route::get('/teachers/create', 'TeachersController@create');
-route::get('/teachers/{teacher}', 'TeachersController@show');
-route::post('/teachers', 'TeachersController@store');
-route::delete('/teachers/{teacher}', 'TeachersController@destroy');
-route::get('/teachers/{teacher}/edit', 'TeachersController@edit');
-route::patch('/teachers/{teacher}', 'TeachersController@update');
+route::get('/login','AuthController@login')->name('login');
+route::post('/postlogin','AuthController@postlogin');
+route::get('/logout','AuthController@logout');
+
+route::group(['middleware' => 'auth'],function(){
+    route::get('/dashboard','DashboardController@index');
+    route::get('/teachers', 'TeachersController@index');
+    route::get('/teachers/create', 'TeachersController@create');
+    route::get('/teachers/{teacher}', 'TeachersController@show');
+    route::post('/teachers', 'TeachersController@store');
+    route::delete('/teachers/{teacher}', 'TeachersController@destroy');
+    route::get('/teachers/{teacher}/edit', 'TeachersController@edit');
+    route::patch('/teachers/{teacher}', 'TeachersController@update');
+});

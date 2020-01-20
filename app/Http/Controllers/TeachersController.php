@@ -87,6 +87,12 @@ class TeachersController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
+        $request->validate(
+            [
+                'nik' => 'required|size:16',
+                'nama' => 'required'
+            ]
+            );
         Teacher::where('id', $teacher->id)
                 ->update([
                     'nik' => $request->nik,

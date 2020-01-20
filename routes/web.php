@@ -39,4 +39,6 @@ route::group(['middleware' => 'auth'],function(){
     route::delete('/teachers/{teacher}', 'TeachersController@destroy');
     route::get('/teachers/{teacher}/edit', 'TeachersController@edit');
     route::patch('/teachers/{teacher}', 'TeachersController@update');
+    Route::get('user','UserController@index');
+    Route::get('user/json','UserController@json');
 });

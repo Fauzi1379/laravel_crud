@@ -1,17 +1,23 @@
 @extends('layout/main')
 
-@section('title','User')
+@section('title','list data pengajar')
  
 @section('content')
 <div class="container mt-5">
     <table class="table table table-striped" id="users-table">
         <thead class="thead-dark">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Created At</th>
-                <th>Updated At</th>
+                <th>NIK</th>
+                <th>NAMA</th>
+                <th>Kendaraan</th>
+                <th>ALAMAT</th>
+                <th>KET</th>
             </tr>
         </thead>
     </table>
@@ -27,10 +33,17 @@ $(function() {
         ajax: 'user/json',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'name', name: 'name' },
-            { data: 'email', name: 'email' },
-            { data: 'created_at', name: 'created_at' },
-            { data: 'updated_at', name: 'updated_at' }
+            { data: 'nik', name: 'nik' },
+            { data: 'nama', name: 'nama' },
+            { data: 'mobils_id', nama : 'mobils_id'},
+            { data: 'alamat', name: 'alamat' },
+           
+        { data: null,
+                            render: function(data){
+                                var view_button = '<a href="/teachers/' + data.id + '" class="btn btn-primary" role="button" aria-pressed="true">Detail</a>';
+                            
+                                return view_button;}
+                        },
         ]
     });
 });

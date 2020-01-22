@@ -53,7 +53,7 @@ class TeachersController extends Controller
         $teacher->save();
 
 
-        return redirect('/teachers')->with('status', 'Data pengajar berhasil ditambah');
+        return redirect('/user')->with('status', 'Data pengajar berhasil ditambah');
     }
 
     /**
@@ -100,7 +100,7 @@ class TeachersController extends Controller
                     'alamat' => $request->alamat
                 ]);
         
-        return redirect('/teachers')->with('status', 'Data pengajar berhasil diubah');
+        return redirect('/user')->with('status', 'Data pengajar berhasil diubah');
     }
 
     /**
@@ -112,6 +112,6 @@ class TeachersController extends Controller
     public function destroy(Teacher $teacher)
     {
         Teacher::destroy($teacher->id);
-        return redirect('/teachers')->with('status', 'Data pengajar berhasil dihapus');
+        return redirect('/user')->with('status', 'Data pengajar berhasil dihapus');
     }
 }

@@ -32,7 +32,10 @@
         <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
       </li>
     <li class="nav-item">
-        <a class="nav-link" href="/teachers">Data Guru PNS</a>
+        <a class="nav-link" href="/teachers">tambah data pengajar</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/user">list data pengajar</a>
     </li>
     </ul>
     <a href="/logout" type="button" class="btn btn-danger">logout</a>

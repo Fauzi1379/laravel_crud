@@ -11,6 +11,7 @@
             <div class="container mt-5">
         <div class="col-8">
             <h1>Tambah Pengajar</h1>
+            <hr color="black">
             <form method="post" action="/teachers/{{ $teacher->id }}">
             @method('patch')
                 @csrf

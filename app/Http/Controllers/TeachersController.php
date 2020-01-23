@@ -47,6 +47,8 @@ class TeachersController extends Controller
         $teacher->nik=$request->nik;
         $teacher->nama=$request->nama;
         $teacher->alamat=$request->alamat;
+        $teacher->mobils_id=$request->mobils_id;
+        
 
         //
 
@@ -97,7 +99,8 @@ class TeachersController extends Controller
                 ->update([
                     'nik' => $request->nik,
                     'nama' => $request->nama,
-                    'alamat' => $request->alamat
+                    'alamat' => $request->alamat,
+                    'mobils_id' => $request->mobils_id
                 ]);
         
         return redirect('/user')->with('status', 'Data pengajar berhasil diubah');

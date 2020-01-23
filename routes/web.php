@@ -32,6 +32,15 @@ route::get('/logout','AuthController@logout');
 
 route::group(['middleware' => 'auth'],function(){
     route::get('/dashboard','DashboardController@index');
+    //mobils
+    Route::get('mobils','MobilController@index');
+    route::get('/mobils/create', 'MobilController@create');
+    route::get('/mobils/{mobil}', 'MobilController@show');
+    route::post('/mobils', 'MobilController@store');
+    route::delete('/mobils/{mobil}', 'MobilController@destroy');
+    route::get('/mobils/{mobil}/edit', 'MobilController@edit');
+    route::patch('/mobils/{mobil}', 'MobilController@update');
+    //akhir
     route::get('/teachers', 'TeachersController@index');
     route::get('/teachers/create', 'TeachersController@create');
     route::get('/teachers/{teacher}', 'TeachersController@show');

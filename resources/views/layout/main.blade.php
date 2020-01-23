@@ -37,6 +37,9 @@
     <li class="nav-item">
         <a class="nav-link" href="/user">list data pengajar</a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ url('/mobils') }}">data kendaraan</a>
+      </li>
     </ul>
     <a href="/logout" type="button" class="btn btn-danger">logout</a>
   </div>

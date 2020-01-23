@@ -10,12 +10,12 @@
 
             <div class="card" >
                 <div class="card-body">
-                    <h5 class="card-title">{{ $teacher->nik }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ $teacher->nama }}</h6>
-                    <p class="card-text">{{ $teacher->alamat }}</p>
+                    <h5 class="card-title">{{ $mobil->nama_kendarann }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $mobil->no_polisi }}</h6>
+                    <p class="card-text">{{ $mobil->warna }}</p>
                     
-                    <a href="{{ $teacher->id }}/edit" class="btn btn-primary">EDIT</a>
-
+                    <a href="{{ $mobil->id }}/edit" class="btn btn-primary">EDIT</a>
+                    
                     <div id='modal'  class="d-inline">
                     <button class="btn btn-danger " data-toggle="modal" data-target="#exampleModal"  class="card-link">Hapus</button>
                     <!-- Modal -->
@@ -29,11 +29,11 @@
                             </button>
                             </div>
                             <div class="modal-body">
-                            <p>Apakah Anda Ingin Mengapus data {{$teacher->nama}}</p>
+                            <p>Apakah Anda Ingin Mengapus data {{$mobil->nama_kendarann}}</p>
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-success" data-dismiss="modal">TIDAK</button>
-                            <form action="{{$teacher->id}}" method="POST">
+                            <form action="{{$mobil->id}}" method="POST">
                                 {{ method_field('delete') }}
                                 @csrf
                             <button type="submit" class="btn btn-danger" type="submit">YA</button>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                    <a href="/user" class="card-link">KEMBALI</a>
+                    <a href="/mobils" class="card-link">KEMBALI</a>
                 </div>
             </div>
         </div>

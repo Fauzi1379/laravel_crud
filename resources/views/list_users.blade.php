@@ -12,10 +12,9 @@
             </div>
         @endif
             <tr>
-                <th>Id</th>
+                <th>no</th>
                 <th>NIK</th>
                 <th>NAMA</th>
-                <th>Kendaraan</th>
                 <th>ALAMAT</th>
                 <th>KET</th>
             </tr>
@@ -35,7 +34,6 @@ $(function() {
             { data: 'id', name: 'id' },
             { data: 'nik', name: 'nik' },
             { data: 'nama', name: 'nama' },
-            { data: 'mobils_id', nama : 'mobils_id'},
             { data: 'alamat', name: 'alamat' },
            
         { data: null,

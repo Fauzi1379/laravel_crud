@@ -1,54 +1,39 @@
 @extends('layout/main')
 
 @section('container')
-<div class="container">
-    <div class="row">
-        <div class="col-8">
-            <h1 class="mt-3">daftar pengajar</h1>
-
-@section('title','Tambah detail pengajar')
-
-@section('container')
-<div class="container">
-    <div class="row">
-        <div class="col-8">
-            <h1 class="mt-3">Isi form dibawah ini</h1>
-
-            <div class="container mt-5">
-        <div class="col-8">
-            <h1>Tambah Pengajar</h1>
-            <form method="post" action="/teachers">
-                @csrf
-                <div class="form-group">
-                    <label for="nik">NIK</label>
-                    <input type="text" class="form-control @error('nik') is-invalid @enderror" id="nik" placeholder="Masukkan NIK" name="nik" value="{{old('nik')}}">
-                    @error('nik')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="nama">NAMA</label>
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name="nama" value="{{old('nama')}}">
-                    @error('nama')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="Alamat">Alamat</label>
-                    <textarea type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" name="alamat"></textarea>
-                </div>
-                <button class="btn btn-primary" type="submit">Simpan</button>
-            </form>
-        </div>
-    </div>
+    <div class="container mt-5">
+        <h1>Daftar Siswa</h1>
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
             </div>
-        </div>
+        @endif
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">NIK</th>
+                <th scope="col">NAMA</th>
+                <th scope="col">ALAMAT</th>
+                <th scope="col">Kendaraan</th>
+                <th scope="col">Keterangan</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($teachers as $t)
+              <tr> 
+              <th scope="row">{{$loop->iteration}}</th>
+              <td>{{$t->nik}}</td>
+              <td>{{$t->nama}}</td>
+              <td>{{$t->alamat}}</td>
+              <td>{{$t->mobils_id   }}</td>
+              <td>
+                <a href="/teachers/{{$t->id}}" class="btn btn-success">detail</a>
+              </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+          <a href="/teachers/create"  type="button" class="btn btn-primary">Tambah Siswa</a>
     </div>
-</div>
-@endsection
-
-            </ul>
-        </div>
-    </div>
-</div>
 @endsection

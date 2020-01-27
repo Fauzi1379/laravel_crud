@@ -18,7 +18,6 @@ class CreateTeachersTable extends Migration
             $table->char('nik',16)->unique();
             $table->string('nama');
             $table->text('alamat');
-            $table->integer('mobil_id');
             $table->timestamps();
         });
     }

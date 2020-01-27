@@ -6,14 +6,21 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <h1 class="mt-3">detail pengajar</h1>
+            <h1 class="mt-3">DETAIL</h1>
 
             <div class="card" >
                 <div class="card-body">
-                    <h5 class="card-title">{{ $mobil->nama_kendarann }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ $mobil->no_polisi }}</h6>
-                    <p class="card-text">{{ $mobil->warna }}</p>
-                    
+                    <hr color="red">
+                    <b><h3>DATA KENDARAAN</h3></b>
+                    <hr color="red">
+                    <h5 class="card-title">NAMA KENADARAAN : {{ $mobil->nama_kendarann }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">NOMOR POLISI : {{ $mobil->no_polisi }}</h6>
+                    <p class="card-ext">WARNA KENDARAAN : {{ $mobil->warna }}</p>
+                    <hr color="red">
+                    <b><h3>PEMILIK KENADARAAN</h3></b>
+                    <hr color="red">
+                    <h5 class="card-title">NIK GURU : {{ $mobil->teacher->nik }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">NAMA PENGAJAR : {{ $mobil->teacher->nama }}</h6>
                     <a href="{{ $mobil->id }}/edit" class="btn btn-primary">EDIT</a>
                     
                     <div id='modal'  class="d-inline">

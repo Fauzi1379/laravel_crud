@@ -16,6 +16,7 @@ class CreateMobilsTable extends Migration
         Schema::create('mobils', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_kendarann');
+            $table->integer('teacher_id');
             $table->char('no_polisi',8)->unique();
             $table->string('warna');
             $table->timestamps();

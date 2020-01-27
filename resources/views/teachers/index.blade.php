@@ -15,9 +15,6 @@
                 <th scope="col">NIK</th>
                 <th scope="col">NAMA</th>
                 <th scope="col">ALAMAT</th>
-                <th scope="col">Nama Kendaraan</th>
-                <th scope="col">No polisi</th>
-                <th scope="col">warna</th>
                 <th scope="col">Keterangan</th>
               </tr>
             </thead>
@@ -28,9 +25,6 @@
               <td>{{$t->nik}}</td>
               <td>{{$t->nama}}</td>
               <td>{{$t->alamat}}</td>
-              <td>{{$t->mobil->nama_kendarann}}</td>
-              <td>{{$t->mobil->no_polisi}}</td>
-              <td>{{$t->mobil->warna}}</td>
               <td>
                 <a href="/teachers/{{$t->id}}" class="btn btn-success">detail</a>
               </td>

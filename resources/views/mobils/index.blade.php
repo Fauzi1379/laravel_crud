@@ -12,6 +12,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">no</th>
+                        <th scope="col">NIK</th>
                         <th scope="col">NAMA KENDARAAN</th>
                         <th scope="col">NOMOR POLISI</th>
                         <th scope="col">WARNA</th>
@@ -22,6 +23,7 @@
                 @foreach( $mobils as $mbl )
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $mbl->teacher->nik}}</td>
                         <td>{{ $mbl->nama_kendarann }}</td>
                         <td>{{ $mbl->no_polisi }}</td>
                         <td>{{ $mbl->warna }}</td>

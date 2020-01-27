@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Teacher;
 use App\Mobil;
 use Illuminate\Http\Request;
 
@@ -27,12 +27,23 @@ class MobilController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('mobils.create');
+        $teacher= Teacher::all();
+        return view('mobils.create',compact('teacher'));
     }
-
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -40,25 +51,25 @@ class MobilController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'nama_kendarann' => 'required',
-                'no_polisi' => 'required|size:8',
-                'warna' => 'required'
-            ]
-            );
+        $mobils = new Mobil;
+        $mobils->nama_kendarann=$request->nama_kendarann;
+        $mobils->teacher_id=$request->teacher_id;
+        $mobils->warna=$request->warna;
+        $mobils->no_polisi=$request->no_polisi;
+        
 
-        $mobil = new Mobil;
-        $mobil->nama_kendarann=$request->nama_kendarann;
-        $mobil->no_polisi=$request->no_polisi;
-        $mobil->warna=$request->warna;
+        $request->validate([
+            'nama_kendarann'=>'required',
+            'teacher_id'=>'required',
+            'no_polisi'=>'required|min:3|max:8',
+            'warna'=>'required',
+            
+        ]);
 
-        //
-
-        $mobil->save();
+        $mobils->save();
 
 
-        return redirect('/mobils')->with('status', 'Data pengajar berhasil ditambah');
+        return redirect('/mobils')->with('status','Data Kendaraan Siswa berhasil ditambahkan');
     }
 
     /**
@@ -80,8 +91,11 @@ class MobilController extends Controller
      */
     public function edit(Mobil $mobil)
     {
-        return view('mobils.edit', compact('mobil'));
+        $teacher= Teacher::all();
+        return view('mobils.edit',['mobils'=>$mobil],compact('teacher'));
     }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -92,23 +106,25 @@ class MobilController extends Controller
      */
     public function update(Request $request, Mobil $mobil)
     {
-        
-        Mobil::where('id', $mobil->id)
-                ->update([
-                    'nama_kendarann' => $request->nama_kendarann,
-                    'no_polisi' => $request->no_polisi,
-                    'warna' => $request->warna
-                ]);
-                $request->validate(
-                    [
-                        'nama_kendarann' => 'required',
-                        'no_polisi' => 'required|size:8',
-                        'warna' => 'required'
-                    ]
-                    );
-        return redirect('/mobils')->with('status', 'Data pengajar berhasil diubah');
-    }
-
+    Mobil::where('id',$mobil->id)
+            ->update([
+                'nama_kendarann'=>$request->nama_kendarann,
+                'teacher_id'=>$request->teacher_id,
+                'no_polisi'=>$request->no_polisi,
+                'warna'=>$request->warna,
+                
+                
+                
+            ]);
+            $request->validate([
+                'nama_kendarann'=>'required',
+                'teacher_id'=>'required',
+                 'no_polisi'=>'required|min:3|max:8',
+                'warna'=>'required',
+                
+            ]);
+            return redirect('/mobils')->with('status','Data Kendaraan Siswa berhasil diubah'); 
+       }
     /**
      * Remove the specified resource from storage.
      *

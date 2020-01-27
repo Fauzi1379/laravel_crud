@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Teacher;
-use App\Mobil;
 use Illuminate\Http\Request;
 
 class TeachersController extends Controller
@@ -26,8 +25,7 @@ class TeachersController extends Controller
      */
     public function create()
     {
-        $mobils= Mobil::all();
-        return view('teachers.create',compact('mobils'));
+        return view('teachers.create');
     }
   
     /**
@@ -49,7 +47,6 @@ class TeachersController extends Controller
         $teacher->nik=$request->nik;
         $teacher->nama=$request->nama;
         $teacher->alamat=$request->alamat;
-        $teacher->Mobils_id=$request->mobils_id;
         
 
         //
@@ -102,7 +99,6 @@ class TeachersController extends Controller
                     'nik' => $request->nik,
                     'nama' => $request->nama,
                     'alamat' => $request->alamat,
-                    'mobils_id' => $request->mobils_id
                 ]);
         
         return redirect('/teachers')->with('status', 'Data pengajar berhasil diubah');

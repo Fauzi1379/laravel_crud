@@ -28,18 +28,6 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="mobils_id">Kendaraan</label>
-                    <select name="mobils_id" class="form-control @error('mobils_id') is-invalid @enderror" >
-                        <option selected>Pilih Kendaraan</option>
-                        @foreach ($mobils as $mbl)
-                        <option  value="{{$mbl->id}}">{{$mbl->nama_kendarann}} - {{$mbl->warna}}</option>
-                        @endforeach
-                    </select>
-                    <a href="/mobils/create">Buat Kendaraan</a>
-                    
-                    @error ('mobils_id')<div class="invalin-feedback">{{ $message}}</div>@enderror 
-                </div>
-                <div class="form-group">
                     <label for="Alamat">Alamat</label>
                     <textarea type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" name="alamat"></textarea>
                 </div>

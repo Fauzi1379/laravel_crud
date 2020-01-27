@@ -12,7 +12,6 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $teacher->nik }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ $teacher->nama }}</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ $teacher->mobils['nama_kendarann']}}</h6>
                     <p class="card-text">{{ $teacher->alamat }}</p>
                     
                     <a href="{{ $teacher->id }}/edit" class="btn btn-primary">EDIT</a>

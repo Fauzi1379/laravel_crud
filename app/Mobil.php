@@ -8,6 +8,6 @@ class Mobil extends Model
 {
     public function teacher()
     {
-        return $this->hasMany(Teacher::class);
+        return $this->belongsTo(Teacher::class);
     }
 }

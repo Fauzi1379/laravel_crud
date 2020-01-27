@@ -11,7 +11,7 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">id</th>
+                        <th scope="col">no</th>
                         <th scope="col">NAMA KENDARAAN</th>
                         <th scope="col">NOMOR POLISI</th>
                         <th scope="col">WARNA</th>

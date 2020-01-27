@@ -15,18 +15,22 @@
                 <th scope="col">NIK</th>
                 <th scope="col">NAMA</th>
                 <th scope="col">ALAMAT</th>
-                <th scope="col">Kendaraan</th>
+                <th scope="col">Nama Kendaraan</th>
+                <th scope="col">No polisi</th>
+                <th scope="col">warna</th>
                 <th scope="col">Keterangan</th>
               </tr>
             </thead>
             <tbody>
                 @foreach ($teachers as $t)
               <tr> 
-              <th scope="row">{{$loop->iteration}}</th>
+              <th scope="row">{{$t->id}}</th>
               <td>{{$t->nik}}</td>
               <td>{{$t->nama}}</td>
               <td>{{$t->alamat}}</td>
-              <td>{{$t->mobils_id   }}</td>
+              <td>{{$t->mobils['nama_kendarann']}}</td>
+              <td>{{$t->mobils['no_polisi']}}</td>
+              <td>{{$t->mobils['warna']}}</td>
               <td>
                 <a href="/teachers/{{$t->id}}" class="btn btn-success">detail</a>
               </td>

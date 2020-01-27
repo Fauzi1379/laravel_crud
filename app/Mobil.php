@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mobil extends Model
 {
-    public function Teacher()
+    public function teacher()
     {
         return $this->hasMany(Teacher::class);
     }

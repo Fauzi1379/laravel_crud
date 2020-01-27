@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
-    public function Mobil(Type $var = null)
+    public function mobil()
     {
         return $this->belongsTo(Mobil::class);
     }

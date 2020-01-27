@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Teacher;
+use App\Mobil;
 use Illuminate\Http\Request;
 
 class TeachersController extends Controller
@@ -25,9 +26,10 @@ class TeachersController extends Controller
      */
     public function create()
     {
-        return view('teachers.create');
+        $mobils= Mobil::all();
+        return view('teachers.create',compact('mobils'));
     }
-
+  
     /**
      * Store a newly created resource in storage.
      *
@@ -47,7 +49,7 @@ class TeachersController extends Controller
         $teacher->nik=$request->nik;
         $teacher->nama=$request->nama;
         $teacher->alamat=$request->alamat;
-        $teacher->mobils_id=$request->mobils_id;
+        $teacher->Mobils_id=$request->mobils_id;
         
 
         //
@@ -55,7 +57,7 @@ class TeachersController extends Controller
         $teacher->save();
 
 
-        return redirect('/user')->with('status', 'Data pengajar berhasil ditambah');
+        return redirect('/teachers')->with('status', 'Data pengajar berhasil ditambah');
     }
 
     /**
@@ -103,7 +105,7 @@ class TeachersController extends Controller
                     'mobils_id' => $request->mobils_id
                 ]);
         
-        return redirect('/user')->with('status', 'Data pengajar berhasil diubah');
+        return redirect('/teachers')->with('status', 'Data pengajar berhasil diubah');
     }
 
     /**
@@ -115,6 +117,6 @@ class TeachersController extends Controller
     public function destroy(Teacher $teacher)
     {
         Teacher::destroy($teacher->id);
-        return redirect('/user')->with('status', 'Data pengajar berhasil dihapus');
+        return redirect('/teachers')->with('status', 'Data pengajar berhasil dihapus');
     }
 }

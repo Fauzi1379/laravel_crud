@@ -28,9 +28,9 @@
               <td>{{$t->nik}}</td>
               <td>{{$t->nama}}</td>
               <td>{{$t->alamat}}</td>
-              <td>{{$t->mobils['nama_kendarann']}}</td>
-              <td>{{$t->mobils['no_polisi']}}</td>
-              <td>{{$t->mobils['warna']}}</td>
+              <td>{{$t->mobil->nama_kendarann}}</td>
+              <td>{{$t->mobil->no_polisi}}</td>
+              <td>{{$t->mobil->warna}}</td>
               <td>
                 <a href="/teachers/{{$t->id}}" class="btn btn-success">detail</a>
               </td>
